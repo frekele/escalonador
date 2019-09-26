@@ -8,13 +8,17 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Escalonador {
-
     public static void main(String[] args) throws FileNotFoundException {
+        Escalonador escalonador = new Escalonador();
+        escalonador.start();
+    }
+
+    private void start() throws FileNotFoundException {
 
         //declaracao das variaveis globais do programa
         int timeSlice = 0;
-        int quantidadeProcessos;
-        int aux;
+        int quantidadeProcessos = 0;
+        int aux = 0;
         int timeLineSize = 0;
         int qtdTemposMax = 0;
         Processo processo;
@@ -179,9 +183,9 @@ public class Escalonador {
             for (int i = 0; i < quantidadeProcessos; i++) {
                 processoTeste = listaProcessos.get(i);
                 teste = processoTeste.isTerminado();
-                if (teste == false) break;
+                if (!teste) break;
             }
-            if (teste == true) break;
+            if (teste) break;
 
 
         } //while true
@@ -274,8 +278,8 @@ public class Escalonador {
 
 
     //metodo criado para verificar se o processo está apto comparando com os outros processos
-    public static boolean isAble(Processo processo, int processoAnalisado, List<Processo> listaProcessos,
-                                 int tempoAnalisado) {
+    private static boolean isAble(Processo processo, int processoAnalisado, List<Processo> listaProcessos,
+                                  int tempoAnalisado) {
 
         Processo procComparado;
         List<String> timeLineProcess;
@@ -287,7 +291,7 @@ public class Escalonador {
                 procComparado = listaProcessos.get(i);
                 timeLineProcess = procComparado.getTimeLineProcesso();
 
-                if (timeLineProcess.isEmpty() == false && timeLineProcess.size() > tempoAnalisado) {
+                if (!timeLineProcess.isEmpty() && timeLineProcess.size() > tempoAnalisado) {
 
                     if ("x".equals(timeLineProcess.get(tempoAnalisado))) {
                         //System.out.println("Apto"); 
@@ -303,8 +307,8 @@ public class Escalonador {
 
 
     //metodo criado para verificar se o processo está bloqueado comparando com os outros processos
-    public static boolean isBlocked(Processo processo, int processoAnalisado, List<Processo> listaProcessos,
-                                    int tempoAnalisado) {
+    private static boolean isBlocked(Processo processo, int processoAnalisado, List<Processo> listaProcessos,
+                                     int tempoAnalisado) {
 
         Processo procComparado;
         List<String> timeLineProcess;
@@ -316,7 +320,7 @@ public class Escalonador {
                 procComparado = listaProcessos.get(i);
                 timeLineProcess = procComparado.getTimeLineProcesso();
 
-                if (timeLineProcess.isEmpty() == false && timeLineProcess.size() > tempoAnalisado) {
+                if (!timeLineProcess.isEmpty() && timeLineProcess.size() > tempoAnalisado) {
 
                     if ("d".equals(timeLineProcess.get(tempoAnalisado))) {
                         //System.out.println("Bloqueado"); 
