@@ -218,7 +218,7 @@ public class Escalonador {
         System.out.println("");
 
         //abre arquivo dipositivo.log para escrita de seu resultado
-        try (PrintWriter out = new PrintWriter("logger-dipositivo.log")) {
+        try (PrintWriter out = new PrintWriter("logger-dispositivo.log")) {
             out.println("Seg  processo");
             for (int x = 0; x < timeLineSize; x++) {
 
