@@ -29,3 +29,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+logger-dipositivo.log
+logger-processos.log

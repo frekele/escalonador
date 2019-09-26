@@ -18,7 +18,7 @@ public class Escalonador {
         int timeLineSize = 0;
         int qtdTemposMax = 0;
         Processo processo;
-        List<Processo> listaProcessos = new ArrayList();
+        List<Processo> listaProcessos = new ArrayList<>();
 
         //declaracao da classe de leitura do java
         Scanner e = new Scanner(System.in);
@@ -213,8 +213,8 @@ public class Escalonador {
         }
         System.out.println("");
 
-        //abre arquivo logdisp.txt para escrita de seu resultado
-        try (PrintWriter out = new PrintWriter("logdisp.txt")) {
+        //abre arquivo dipositivo.log para escrita de seu resultado
+        try (PrintWriter out = new PrintWriter("logger-dipositivo.log")) {
             out.println("Seg  processo");
             for (int x = 0; x < timeLineSize; x++) {
 
@@ -232,8 +232,8 @@ public class Escalonador {
             }
         }
 
-        //abre arquivo logproc.txt para escrita do resultado
-        try (PrintWriter out = new PrintWriter("logproc.txt")) {
+        //abre arquivo processos.log para escrita do resultado
+        try (PrintWriter out = new PrintWriter("logger-processos.log")) {
             out.print("Seg ");
             for (int i = 0; i < quantidadeProcessos; i++) {
                 out.print("P" + (i + 1) + "   ");

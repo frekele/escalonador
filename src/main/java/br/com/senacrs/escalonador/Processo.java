@@ -11,9 +11,9 @@ import java.util.List;
 
 public class Processo {
 
-    private List<Integer> temposExecucao = new ArrayList();
-    private List<Integer> temposDispositivo = new ArrayList();
-    private List<String> timeLineProcesso = new ArrayList();
+    private List<Integer> temposExecucao = new ArrayList<>();
+    private List<Integer> temposDispositivo = new ArrayList<>();
+    private List<String> timeLineProcesso = new ArrayList<>();
     private int sobraTimeSlice;
     private int tempo;
     private int etapaAtual;
